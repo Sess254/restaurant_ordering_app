@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+} 
+
+header {
+    background-color: #EBDFC7;
+}
+
+img{
+    width: 150px;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
