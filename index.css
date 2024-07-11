@@ -24,7 +24,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-left: 5px;
+    padding-left: 15px;
 }
 .menu-items{
     display: flex;
