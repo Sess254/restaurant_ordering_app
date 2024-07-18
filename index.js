@@ -2,7 +2,7 @@ const menuEl = document.getElementById('menu-el')
 
 import { menuArray } from "./data.js"
 
-function getMenuitems(){
+function getMenuItems(){
     const menuItemsHtml = menuArray.map(menu =>{
         return `
         <section class="menu">
@@ -16,14 +16,29 @@ function getMenuitems(){
                         </div>
                     </div>
                     <div class="add-btn">
-                        <i class="fa-regular fa-plus"></i>
+                        <i class="fa-regular fa-plus" data-add="${menu.id}"></i>
                     </div>
             </div>
         </section>
         `
     }).join('')
 
-    menuEl.innerHTML = menuItemsHtml
+    return menuItemsHtml
+
+}
+function render(){
+    menuEl.innerHTML = getMenuItems()
 }
 
-getMenuitems()
+render()
+
+
+// document.addEventListener("click", e=>{
+//     if (e.target.dataset.add){
+//         (e.target.dataset.add)
+//     }
+// })
+
+// function addOrder(){
+//     const orderArray = 
+// }

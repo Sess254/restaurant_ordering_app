@@ -24,27 +24,18 @@
     <section id="menu-el"></section>
 
     <section class="order" id="order-el">
-        <div class="order-items">
-            <h1 class="order-heading">
-                Your order
-            </h1>
-            <div class="order-items">
-                <div class="order-items-container">
-                    <div class="order-title">
-                        <h2>Pizza</h2>
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                    <h2>$14</h2>
-                </div>
-                <div class="total-container">
-                    <div class="order-items-container">
-                        <h2>Total price:</h2>
-                        <h2>$14</h2>  
-                    </div>    
-                </div>
-            </div>
+        <div class="orders-container">
+            <ul>
+                <li><span>Pizza </span><span>$15</span></li>
+            </ul>
+            <ul>
+                <li><span>Pizza </span><span>$15</span></li>
+            </ul>
         </div>
-        <button id="order-btn">Complete order</button>
+        <div class="total-orders">
+            <p class="total-order"><span>Total orders:</span> <span>$30</span></p>
+        </div>
+        <button>Complete Order</button>
     </section>
     <script src="index.js" type="module"></script>
 
