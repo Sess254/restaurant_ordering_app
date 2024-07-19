@@ -1,5 +1,7 @@
 const menuEl = document.getElementById('menu-el')
 const ordersEl = document.getElementById('orders-el')
+const totalEl = document.getElementById('totals-el')
+const ordersArray = []
 
 import { menuArray } from "./data.js"
 
@@ -44,8 +46,22 @@ function addOrders(orderId){
         return order.id === parseInt(orderId)
     })[0]
 
-    const ordersArray = []
+    
     ordersArray.push(targetOrderObj)
+    let totalPrice = 0
+    ordersArray.forEach(order =>{
+        totalPrice += order.price
+    })
+
+    if (ordersArray){
+        totalEl.innerHTML = ` 
+        <div class="total-orders">
+            <p class="total-order"><span>Total orders:</span> <span>$${totalPrice}</span></p>
+            <button  id="complete-order">Complete Order</button>
+        </div>`
+    }
+    
+    ordersEl.innerHTML = ''
 
     const orderHtml = ordersArray.map(item =>{
         return ` 
@@ -53,7 +69,11 @@ function addOrders(orderId){
             <ul>
                 <li><span>${item.name} <i class="fa-regular fa-trash-can" data-delete="1"></i> </span><span>$${item.price}</span></li>
             </ul>
-        </div>`
+        </div> 
+        `
     })
+
     ordersEl.innerHTML += orderHtml
+   
+    console.log(ordersArray)
 }
