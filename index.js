@@ -1,4 +1,5 @@
 const menuEl = document.getElementById('menu-el')
+const ordersEl = document.getElementById('orders-el')
 
 import { menuArray } from "./data.js"
 
@@ -12,7 +13,7 @@ function getMenuItems(){
                         <div class="food-desc">
                             <h2>${menu.name}</h2>
                             <p>${menu.ingredients}</p>
-                            <h2>${menu.price}</h2>
+                            <h2>$${menu.price}</h2>
                         </div>
                     </div>
                     <div class="add-btn">
@@ -32,13 +33,27 @@ function render(){
 
 render()
 
+document.addEventListener('click', (e) =>{
+    if (e.target.dataset.add){
+        addOrders(e.target.dataset.add)
+    }
+})
 
-// document.addEventListener("click", e=>{
-//     if (e.target.dataset.add){
-//         (e.target.dataset.add)
-//     }
-// })
+function addOrders(orderId){
+    const targetOrderObj = menuArray.filter(order =>{
+        return order.id === parseInt(orderId)
+    })[0]
 
-// function addOrder(){
-//     const orderArray = 
-// }
+    const ordersArray = []
+    ordersArray.push(targetOrderObj)
+
+    const orderHtml = ordersArray.map(item =>{
+        return ` 
+        <div class="orders-container">
+            <ul>
+                <li><span>${item.name} <i class="fa-regular fa-trash-can" data-delete="1"></i> </span><span>$${item.price}</span></li>
+            </ul>
+        </div>`
+    })
+    ordersEl.innerHTML += orderHtml
+}

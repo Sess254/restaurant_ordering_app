@@ -50,8 +50,8 @@ header {
 }
 
 .fa-plus:hover,
-.fa-plus:active {
-    font-size: 20px;
+.fa-plus:active{
+    font-size: 25px;
 }
 
 .menu {
@@ -61,7 +61,7 @@ header {
     max-width: 80%;
 }
 
-.order {
+.orders {
     margin: 0 auto;
     width: 80%;
 }
