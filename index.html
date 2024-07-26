@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MobileApp</title>
+    <!--font style-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
 		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
 		crossorigin="anonymous" 
@@ -31,33 +33,40 @@
     <section class="orders total" id="totals-el">
         <!-- total of the orders reside here -->    
     </section>
-    <div class="modal-container">
-        <h1 class="modal-heading">Enter Your Card Details</h1>
-        <form id="content form">
-            <input
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                required>
-            <input
-                type="text"
-                name="name"
-                placeholder="Enter your number"
-                required>
-            <input
-                type="text"
-                name="name"
-                placeholder="Enter CVV"
-                required>
-            <div class="modal-btn-container">
-                <button class="modal-btn">
-                    Pay
-                </button>
-            </div>
-        </form>
+    <section>
+        <div class="order-complete" id="complete-el">
+            <!-- <h1 class="order-complete-text">Thanks, James!Your order is on its way</h1> -->
+        </div>
+        <div class="modal-container" id="payment-el">
+            <h1 class="modal-heading">Enter Your Card Details</h1>
+            <form id="content-form">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your number"
+                    required>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter CVV"
+                    required>
+                <div class="modal-btn-container">
+                    <button class="modal-btn" data-pay="complete">
+                        Pay
+                    </button>
+                </div>
+            </form>
+    
+                
+        </div>
 
-            
-    </div>
+    </section>
+   
     <script src="index.js" type="module"></script>
 
 </body>

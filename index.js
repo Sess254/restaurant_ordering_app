@@ -1,6 +1,9 @@
 const menuEl = document.getElementById('menu-el')
 const ordersEl = document.getElementById('orders-el')
 const totalEl = document.getElementById('totals-el')
+const paymentEl = document.getElementById('payment-el')
+const completeEl = document.getElementById('complete-el')
+const contentForm = document.getElementById('content-form')
 const ordersArray = []
 let totalPrice = 0
 
@@ -43,7 +46,10 @@ document.addEventListener('click', (e) =>{
   } else if (e.target.dataset.delete){
     removeOrders(e.target.dataset.delete)
   } else if (e.target.dataset.complete){
-    console.log(`modal shown`)
+    showModalPaymentHtml()
+  } else if (e.target.dataset.pay){
+    e.preventDefault()
+    completeOrder()
   }
 })
 
@@ -103,17 +109,19 @@ function getTotalHtml(){
   }
   
   return totalHtml
-  console.log(ordersArray)
- 
   }
-  
 
-function renderTotalHtml(){
- 
-  
-}
+  function showModalPaymentHtml(){
+    paymentEl.style.display = 'block'
+    
+  }
 
-function renderOrderHtml() {
-  
-  console.log(totalPrice)
-}
+  function completeOrder(){
+    const completeOrderData = new FormData(contentForm)
+    const name = completeOrderData.get('name')
+    completeEl.innerHTML = `<h1 class="order-complete-text">Thanks, ${name}!Your order is on its way</h1>`
+    paymentEl.style.display = 'none'
+    ordersEl.innerHTML = ''
+    totalEl.innerHTML = ''
+    console.log(`complete`)
+  }
